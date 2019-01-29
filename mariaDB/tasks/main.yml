@@ -1,0 +1,21 @@
+---
+# tasks file for mariaDB
+
+- name: Installing Mariadb Packages
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+        - "{{mariadb_packages}}"
+
+
+- name: start mariaDb Service
+  systemd:
+   name: mariadb
+   state: started
+   enabled: yes
+  register: output
+
+- debug:
+    msg: "{{output}}"
+

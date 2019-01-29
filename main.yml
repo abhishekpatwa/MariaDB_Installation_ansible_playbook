@@ -1,0 +1,7 @@
+---
+
+ - name: Installation of MariaDb
+   hosts: localhost
+   become: yes
+   roles:
+       - mariaDB 
